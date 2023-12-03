@@ -1,1 +1,14 @@
-r_dir_file(vendor_hal_perf_default, vendor_sysfs_usb_supply)
+r_dir_file(vendor_hal_perf_default, system_server)
+
+allow vendor_hal_perf_default {
+  vendor_sysfs_msm_subsys
+  vendor_sysfs_usb_supply
+}:dir search;
+
+allow vendor_hal_perf_default {
+  vendor_sysfs_msm_subsys
+  vendor_sysfs_usb_supply
+}:{
+  file
+  lnk_file
+} rw_file_perms;
